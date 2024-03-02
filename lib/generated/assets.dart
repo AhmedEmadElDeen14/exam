@@ -16,7 +16,8 @@ class Assets {
   static const String 2xPlank2x = 'assets/images/@2x/Plank@2x.png';
   static const String 2xRelaxation2x = 'assets/images/@2x/Relaxation@2x.png';
   static const String 2xSad2x = 'assets/images/@2x/sad@2x.png';
-  static const String 2xYoga2x = 'assets/images/@2x/Yoga@2x.png';
+  static const String 2xVectorAliceCare2x = 'assets/images/@2x/VectorAliceCare@2x.png';
+  static const String 2xYoga2x = 'assets/images/@2x/yoga@2x.png';
   static const String 2xYogai2x = 'assets/images/@2x/yogai@2x.png';
   static const String 3xBeathing3x = 'assets/images/@3x/Beathing@3x.png';
   static const String 3xCalo3x = 'assets/images/@3x/calo@3x.png';
@@ -32,7 +33,8 @@ class Assets {
   static const String 3xPlank3x = 'assets/images/@3x/Plank@3x.png';
   static const String 3xRelaxation3x = 'assets/images/@3x/Relaxation@3x.png';
   static const String 3xSad3x = 'assets/images/@3x/sad@3x.png';
-  static const String 3xYoga3x = 'assets/images/@3x/Yoga@3x.png';
+  static const String 3xVectorAliceCare3x = 'assets/images/@3x/VectorAliceCare@3x.png';
+  static const String 3xYoga3x = 'assets/images/@3x/yoga@3x.png';
   static const String 3xYogai3x = 'assets/images/@3x/yogai@3x.png';
   static const String imagesBeathing = 'assets/images/Beathing.png';
   static const String imagesCalo = 'assets/images/calo.png';
@@ -48,7 +50,8 @@ class Assets {
   static const String imagesPlank1 = 'assets/images/Plank1.png';
   static const String imagesRelaxation = 'assets/images/Relaxation.png';
   static const String imagesSad = 'assets/images/sad.png';
-  static const String imagesYoga = 'assets/images/Yoga.png';
+  static const String imagesVectorAliceCare = 'assets/images/VectorAliceCare.png';
+  static const String imagesYoga = 'assets/images/yoga.png';
   static const String imagesYogai = 'assets/images/yogai.png';
 
 }

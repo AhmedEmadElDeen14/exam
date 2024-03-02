@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: WorkoutApp.routeName,
+      initialRoute: NewsApp.routeName,
       routes: {
         MoodyApp.routeName:(context) => MoodyApp(),
         WorkoutApp.routeName:(context) => WorkoutApp(),
