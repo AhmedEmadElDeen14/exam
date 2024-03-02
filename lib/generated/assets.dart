@@ -36,6 +36,8 @@ class Assets {
   static const String 3xVectorAliceCare3x = 'assets/images/@3x/VectorAliceCare@3x.png';
   static const String 3xYoga3x = 'assets/images/@3x/yoga@3x.png';
   static const String 3xYogai3x = 'assets/images/@3x/yogai@3x.png';
+  static const String assetsFrame1 = 'assets/Frame1.png';
+  static const String assetsFrame2 = 'assets/Frame2.png';
   static const String imagesBeathing = 'assets/images/Beathing.png';
   static const String imagesCalo = 'assets/images/calo.png';
   static const String imagesCool = 'assets/images/cool.png';
