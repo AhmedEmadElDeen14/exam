@@ -36,12 +36,13 @@ class Assets {
   static const String 3xVectorAliceCare3x = 'assets/images/@3x/VectorAliceCare@3x.png';
   static const String 3xYoga3x = 'assets/images/@3x/yoga@3x.png';
   static const String 3xYogai3x = 'assets/images/@3x/yogai@3x.png';
-  static const String assetsFrame1 = 'assets/Frame1.png';
-  static const String assetsFrame2 = 'assets/Frame2.png';
   static const String imagesBeathing = 'assets/images/Beathing.png';
   static const String imagesCalo = 'assets/images/calo.png';
   static const String imagesCool = 'assets/images/cool.png';
   static const String imagesFeature = 'assets/images/feature.png';
+  static const String imagesFrame1 = 'assets/images/Frame1.png';
+  static const String imagesFrame2 = 'assets/images/Frame2.png';
+  static const String imagesFrame5 = 'assets/images/Frame5.png';
   static const String imagesHappy = 'assets/images/happy.png';
   static const String imagesIconheart = 'assets/images/Iconheart.png';
   static const String imagesLove = 'assets/images/love.png';
