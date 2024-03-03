@@ -150,7 +150,7 @@ class MoodyApp extends StatelessWidget {
                       children: [
                         InkWell(
                           onTap: (){
-                            Navigator.of(context).pushNamed(WorkoutApp.routeName);
+                            Navigator.of(context).pushNamed(NewsApp.routeName);
                           },
                           child: Container(
                             child: CircleAvatar(
@@ -414,7 +414,7 @@ class MoodyApp extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Image(
-                                  image: AssetImage("assets/images/Yoga.png"),
+                                  image: AssetImage("assets/images/Meditation.png"),
                                 ),
                                 SizedBox(
                                   width: 8,
