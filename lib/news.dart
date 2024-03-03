@@ -78,6 +78,7 @@ class _NewsAppState extends State<NewsApp> with SingleTickerProviderStateMixin {
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 35, vertical: 25),
         child: Column(
+          mainAxisSize: MainAxisSize.max,
           children: [
             TextField(
               decoration: InputDecoration(
@@ -90,561 +91,552 @@ class _NewsAppState extends State<NewsApp> with SingleTickerProviderStateMixin {
             SizedBox(
               height: 20,
             ),
-
             DefaultTabController(
               length: 4,
               child: Flexible(
-                child: ListView(
-                  children: [
-                    ButtonsTabBar(
-                      backgroundColor: Color(0xffF4EBFF),
-                      unselectedBackgroundColor: Colors.white,
-                      labelStyle: TextStyle(
-                          color: Color(0xff6941C6),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16),
-                      unselectedLabelStyle: TextStyle(
-                        color: Color(0xff667085),
-                        fontWeight: FontWeight.bold,
-                      ),
-                      borderWidth: 1,
-                      unselectedBorderColor: Color(0xffD6BBFB),
-                      radius: 100,
-                      buttonMargin: EdgeInsets.symmetric(horizontal: 8),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 15),
-                      borderColor: Color(0xffD6BBFB),
-                      tabs: [
-                        Tab(
-                          text: "Discover",
-                        ),
-                        Tab(
-                          text: "News",
-                        ),
-                        Tab(
-                          text: "Most Viewed",
-                        ),
-                        Tab(
-                          text: "Saved",
-                        ),
-                      ],
-                      controller: tabController,
-                    )
+                child: ButtonsTabBar(
+                  backgroundColor: Color(0xffF4EBFF),
+                  unselectedBackgroundColor: Colors.white,
+                  labelStyle: TextStyle(
+                      color: Color(0xff6941C6),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16),
+                  unselectedLabelStyle: TextStyle(
+                    color: Color(0xff667085),
+                    fontWeight: FontWeight.bold,
+                  ),
+                  borderWidth: 1,
+                  unselectedBorderColor: Color(0xffD6BBFB),
+                  radius: 100,
+                  buttonMargin: EdgeInsets.symmetric(horizontal: 8),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                  borderColor: Color(0xffD6BBFB),
+                  tabs: [
+                    Tab(
+                      text: "Discover",
+                    ),
+                    Tab(
+                      text: "News",
+                    ),
+                    Tab(
+                      text: "Most Viewed",
+                    ),
+                    Tab(
+                      text: "Saved",
+                    ),
                   ],
+                  controller: tabController,
                 ),
               ),
             ),
             Expanded(
-              child: Container(
-                child: TabBarView(
-                  controller: tabController,
-                  children: [
-                    ListView(
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Hot topics",
-                                  style: TextStyle(
-                                      fontSize: 18, fontWeight: FontWeight.bold),
-                                ),
-                                InkWell(
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "see more",
-                                        style: TextStyle(
-                                            fontSize: 14, color: Color(0xff5925DC)),
-                                      ),
-                                      Icon(
-                                        Icons.arrow_forward_ios,
-                                        size: 15,
-                                        color: Color(0xff5925DC),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            CarouselSlider(
-                              options: CarouselOptions(
-                                  aspectRatio: 2.0,
-                                  enlargeCenterPage: true,
-                                  enableInfiniteScroll: false,
-                                  initialPage: 1),
-                              items: <String>[
-                                "assets/images/Frame1.png",
-                                "assets/images/Frame2.png"
-                              ].map((i) {
-                                return Builder(
-                                  builder: (BuildContext context) {
-                                    return Container(
-                                        child: Image(
-                                      image: AssetImage("$i"),
-                                    ));
-                                  },
-                                );
-                              }).toList(),
-                            ),
-                            Container(
-                              alignment: Alignment.topLeft,
-                              child: Text(
-                                "Get Tips",
-                                style:
-                                    TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              child: TabBarView(
+                controller: tabController,
+                children: [
+                  ListView(
+                    children: [
+                      Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Hot topics",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
                               ),
-                            ),
-                            Container(
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Image(
-                                    image: AssetImage("assets/images/Frame5.png"),
-                                    width: double.infinity,
-                                    fit: BoxFit.fill,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
+                              InkWell(
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "see more",
+                                      style: TextStyle(
+                                          fontSize: 14, color: Color(0xff5925DC)),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 15,
+                                      color: Color(0xff5925DC),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Cycle Phases and Period",
-                                  style:
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          CarouselSlider(
+                            options: CarouselOptions(
+                                aspectRatio: 2.0,
+                                enlargeCenterPage: true,
+                                enableInfiniteScroll: false,
+                                initialPage: 1),
+                            items: <String>[
+                              "assets/images/Frame1.png",
+                              "assets/images/Frame2.png"
+                            ].map((i) {
+                              return Builder(
+                                builder: (BuildContext context) {
+                                  return Container(
+                                      child: Image(
+                                    image: AssetImage("$i"),
+                                  ));
+                                },
+                              );
+                            }).toList(),
+                          ),
+                          Container(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              "Get Tips",
+                              style:
                                   TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                                ),
-                                InkWell(
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "see more",
-                                        style: TextStyle(
-                                            fontSize: 14, color: Color(0xff5925DC)),
-                                      ),
-                                      Icon(
-                                        Icons.arrow_forward_ios,
-                                        size: 15,
-                                        color: Color(0xff5925DC),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
                             ),
-                            Container(
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Image(
-                                    image: AssetImage("assets/images/Frame5.png"),
-                                    width: double.infinity,
-                                    fit: BoxFit.fill,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    ListView(
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          ),
+                          Container(
+                            child: Column(
                               children: [
-                                Text(
-                                  "Hot topics",
-                                  style: TextStyle(
-                                      fontSize: 18, fontWeight: FontWeight.bold),
+                                SizedBox(
+                                  height: 10,
                                 ),
-                                InkWell(
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "see more",
-                                        style: TextStyle(
-                                            fontSize: 14, color: Color(0xff5925DC)),
-                                      ),
-                                      Icon(
-                                        Icons.arrow_forward_ios,
-                                        size: 15,
-                                        color: Color(0xff5925DC),
-                                      ),
-                                    ],
-                                  ),
+                                Image(
+                                  image: AssetImage("assets/images/Frame5.png"),
+                                  width: double.infinity,
+                                  fit: BoxFit.fill,
+                                ),
+                                SizedBox(
+                                  height: 10,
                                 ),
                               ],
                             ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            CarouselSlider(
-                              options: CarouselOptions(
-                                  aspectRatio: 2.0,
-                                  enlargeCenterPage: true,
-                                  enableInfiniteScroll: false,
-                                  initialPage: 1),
-                              items: <String>[
-                                "assets/images/Frame1.png",
-                                "assets/images/Frame2.png"
-                              ].map((i) {
-                                return Builder(
-                                  builder: (BuildContext context) {
-                                    return Container(
-                                        child: Image(
-                                          image: AssetImage("$i"),
-                                        ));
-                                  },
-                                );
-                              }).toList(),
-                            ),
-                            Container(
-                              alignment: Alignment.topLeft,
-                              child: Text(
-                                "Get Tips",
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Cycle Phases and Period",
                                 style:
                                 TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                               ),
-                            ),
-                            Container(
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Image(
-                                    image: AssetImage("assets/images/Frame5.png"),
-                                    width: double.infinity,
-                                    fit: BoxFit.fill,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Cycle Phases and Period",
-                                  style:
-                                  TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                              InkWell(
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "see more",
+                                      style: TextStyle(
+                                          fontSize: 14, color: Color(0xff5925DC)),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 15,
+                                      color: Color(0xff5925DC),
+                                    ),
+                                  ],
                                 ),
-                                InkWell(
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "see more",
-                                        style: TextStyle(
-                                            fontSize: 14, color: Color(0xff5925DC)),
-                                      ),
-                                      Icon(
-                                        Icons.arrow_forward_ios,
-                                        size: 15,
-                                        color: Color(0xff5925DC),
-                                      ),
-                                    ],
-                                  ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Image(
+                                  image: AssetImage("assets/images/Frame5.png"),
+                                  width: double.infinity,
+                                  fit: BoxFit.fill,
+                                ),
+                                SizedBox(
+                                  height: 10,
                                 ),
                               ],
                             ),
-                            Container(
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Image(
-                                    image: AssetImage("assets/images/Frame5.png"),
-                                    width: double.infinity,
-                                    fit: BoxFit.fill,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  ListView(
+                    children: [
+                      Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Hot topics",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    ListView(
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Hot topics",
-                                  style: TextStyle(
-                                      fontSize: 18, fontWeight: FontWeight.bold),
+                              InkWell(
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "see more",
+                                      style: TextStyle(
+                                          fontSize: 14, color: Color(0xff5925DC)),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 15,
+                                      color: Color(0xff5925DC),
+                                    ),
+                                  ],
                                 ),
-                                InkWell(
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "see more",
-                                        style: TextStyle(
-                                            fontSize: 14, color: Color(0xff5925DC)),
-                                      ),
-                                      Icon(
-                                        Icons.arrow_forward_ios,
-                                        size: 15,
-                                        color: Color(0xff5925DC),
-                                      ),
-                                    ],
-                                  ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          CarouselSlider(
+                            options: CarouselOptions(
+                                aspectRatio: 2.0,
+                                enlargeCenterPage: true,
+                                enableInfiniteScroll: false,
+                                initialPage: 1),
+                            items: <String>[
+                              "assets/images/Frame1.png",
+                              "assets/images/Frame2.png"
+                            ].map((i) {
+                              return Builder(
+                                builder: (BuildContext context) {
+                                  return Container(
+                                      child: Image(
+                                        image: AssetImage("$i"),
+                                      ));
+                                },
+                              );
+                            }).toList(),
+                          ),
+                          Container(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              "Get Tips",
+                              style:
+                              TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Image(
+                                  image: AssetImage("assets/images/Frame5.png"),
+                                  width: double.infinity,
+                                  fit: BoxFit.fill,
+                                ),
+                                SizedBox(
+                                  height: 10,
                                 ),
                               ],
                             ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            CarouselSlider(
-                              options: CarouselOptions(
-                                  aspectRatio: 2.0,
-                                  enlargeCenterPage: true,
-                                  enableInfiniteScroll: false,
-                                  initialPage: 1),
-                              items: <String>[
-                                "assets/images/Frame1.png",
-                                "assets/images/Frame2.png"
-                              ].map((i) {
-                                return Builder(
-                                  builder: (BuildContext context) {
-                                    return Container(
-                                        child: Image(
-                                          image: AssetImage("$i"),
-                                        ));
-                                  },
-                                );
-                              }).toList(),
-                            ),
-                            Container(
-                              alignment: Alignment.topLeft,
-                              child: Text(
-                                "Get Tips",
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Cycle Phases and Period",
                                 style:
                                 TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                               ),
-                            ),
-                            Container(
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Image(
-                                    image: AssetImage("assets/images/Frame5.png"),
-                                    width: double.infinity,
-                                    fit: BoxFit.fill,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Cycle Phases and Period",
-                                  style:
-                                  TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                              InkWell(
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "see more",
+                                      style: TextStyle(
+                                          fontSize: 14, color: Color(0xff5925DC)),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 15,
+                                      color: Color(0xff5925DC),
+                                    ),
+                                  ],
                                 ),
-                                InkWell(
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "see more",
-                                        style: TextStyle(
-                                            fontSize: 14, color: Color(0xff5925DC)),
-                                      ),
-                                      Icon(
-                                        Icons.arrow_forward_ios,
-                                        size: 15,
-                                        color: Color(0xff5925DC),
-                                      ),
-                                    ],
-                                  ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Image(
+                                  image: AssetImage("assets/images/Frame5.png"),
+                                  width: double.infinity,
+                                  fit: BoxFit.fill,
+                                ),
+                                SizedBox(
+                                  height: 10,
                                 ),
                               ],
                             ),
-                            Container(
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Image(
-                                    image: AssetImage("assets/images/Frame5.png"),
-                                    width: double.infinity,
-                                    fit: BoxFit.fill,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  ListView(
+                    children: [
+                      Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Hot topics",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    ListView(
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Hot topics",
-                                  style: TextStyle(
-                                      fontSize: 18, fontWeight: FontWeight.bold),
+                              InkWell(
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "see more",
+                                      style: TextStyle(
+                                          fontSize: 14, color: Color(0xff5925DC)),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 15,
+                                      color: Color(0xff5925DC),
+                                    ),
+                                  ],
                                 ),
-                                InkWell(
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "see more",
-                                        style: TextStyle(
-                                            fontSize: 14, color: Color(0xff5925DC)),
-                                      ),
-                                      Icon(
-                                        Icons.arrow_forward_ios,
-                                        size: 15,
-                                        color: Color(0xff5925DC),
-                                      ),
-                                    ],
-                                  ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          CarouselSlider(
+                            options: CarouselOptions(
+                                aspectRatio: 2.0,
+                                enlargeCenterPage: true,
+                                enableInfiniteScroll: false,
+                                initialPage: 1),
+                            items: <String>[
+                              "assets/images/Frame1.png",
+                              "assets/images/Frame2.png"
+                            ].map((i) {
+                              return Builder(
+                                builder: (BuildContext context) {
+                                  return Container(
+                                      child: Image(
+                                        image: AssetImage("$i"),
+                                      ));
+                                },
+                              );
+                            }).toList(),
+                          ),
+                          Container(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              "Get Tips",
+                              style:
+                              TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Image(
+                                  image: AssetImage("assets/images/Frame5.png"),
+                                  width: double.infinity,
+                                  fit: BoxFit.fill,
+                                ),
+                                SizedBox(
+                                  height: 10,
                                 ),
                               ],
                             ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            CarouselSlider(
-                              options: CarouselOptions(
-                                  aspectRatio: 2.0,
-                                  enlargeCenterPage: true,
-                                  enableInfiniteScroll: false,
-                                  initialPage: 1),
-                              items: <String>[
-                                "assets/images/Frame1.png",
-                                "assets/images/Frame2.png"
-                              ].map((i) {
-                                return Builder(
-                                  builder: (BuildContext context) {
-                                    return Container(
-                                        child: Image(
-                                          image: AssetImage("$i"),
-                                        ));
-                                  },
-                                );
-                              }).toList(),
-                            ),
-                            Container(
-                              alignment: Alignment.topLeft,
-                              child: Text(
-                                "Get Tips",
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Cycle Phases and Period",
                                 style:
                                 TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                               ),
-                            ),
-                            Container(
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Image(
-                                    image: AssetImage("assets/images/Frame5.png"),
-                                    width: double.infinity,
-                                    fit: BoxFit.fill,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Cycle Phases and Period",
-                                  style:
-                                  TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                              InkWell(
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "see more",
+                                      style: TextStyle(
+                                          fontSize: 14, color: Color(0xff5925DC)),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 15,
+                                      color: Color(0xff5925DC),
+                                    ),
+                                  ],
                                 ),
-                                InkWell(
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "see more",
-                                        style: TextStyle(
-                                            fontSize: 14, color: Color(0xff5925DC)),
-                                      ),
-                                      Icon(
-                                        Icons.arrow_forward_ios,
-                                        size: 15,
-                                        color: Color(0xff5925DC),
-                                      ),
-                                    ],
-                                  ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Image(
+                                  image: AssetImage("assets/images/Frame5.png"),
+                                  width: double.infinity,
+                                  fit: BoxFit.fill,
+                                ),
+                                SizedBox(
+                                  height: 10,
                                 ),
                               ],
                             ),
-                            Container(
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Image(
-                                    image: AssetImage("assets/images/Frame5.png"),
-                                    width: double.infinity,
-                                    fit: BoxFit.fill,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  ListView(
+                    children: [
+                      Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Hot topics",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
                               ),
+                              InkWell(
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "see more",
+                                      style: TextStyle(
+                                          fontSize: 14, color: Color(0xff5925DC)),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 15,
+                                      color: Color(0xff5925DC),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          CarouselSlider(
+                            options: CarouselOptions(
+                                aspectRatio: 2.0,
+                                enlargeCenterPage: true,
+                                enableInfiniteScroll: false,
+                                initialPage: 1),
+                            items: <String>[
+                              "assets/images/Frame1.png",
+                              "assets/images/Frame2.png"
+                            ].map((i) {
+                              return Builder(
+                                builder: (BuildContext context) {
+                                  return Container(
+                                      child: Image(
+                                        image: AssetImage("$i"),
+                                      ));
+                                },
+                              );
+                            }).toList(),
+                          ),
+                          Container(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              "Get Tips",
+                              style:
+                              TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                          Container(
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Image(
+                                  image: AssetImage("assets/images/Frame5.png"),
+                                  width: double.infinity,
+                                  fit: BoxFit.fill,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Cycle Phases and Period",
+                                style:
+                                TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                              InkWell(
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "see more",
+                                      style: TextStyle(
+                                          fontSize: 14, color: Color(0xff5925DC)),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 15,
+                                      color: Color(0xff5925DC),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Image(
+                                  image: AssetImage("assets/images/Frame5.png"),
+                                  width: double.infinity,
+                                  fit: BoxFit.fill,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
 
-                  ],
-                ),
+                ],
               ),
             ),
-
-
           ],
         ),
       ),
